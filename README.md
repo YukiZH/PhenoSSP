@@ -1,3 +1,5 @@
+<img src="https://github.com/YukiZH/PhenoSSP/blob/main/PhenoSSP-logo.png" alt="PhenoSSP Logo" width="80" align="right" />
+
 # PhenoSSP: Uncovering a Proximity-Dependent Suppressive Niche in RCC
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -111,10 +113,10 @@ Scripts to reproduce the main figures from the manuscript are located in the `pl
 
 | Figure | Description | Command |
 | --- | --- | --- |
-| **Figure 2** | Performance Benchmarks (Confusion Matrices, F1 Scores) | `python plotting/plot_figure_2.py` |
-| **Figure 3** | Robustness & Domain Adaptation Analysis | `python plotting/plot_figure_3.py` |
-| **Figure 4** | Feature Space (t-SNE) & Attention Maps | `python plotting/plot_figure_4.py` |
-| **Figure 5** | **Spatial Interaction & Survival Analysis (The Paradox)** | `python plotting/plot_figure_5.py` |
+| **Fig 2** | Performance Benchmarks (Confusion Matrices, F1 Scores) | `python plotting/plot_figure_2.py` |
+| **Fig 3** | Robustness & Domain Adaptation Analysis | `python plotting/plot_figure_3.py` |
+| **Fig 4** | Feature Space (t-SNE) & Attention Maps | `python plotting/plot_figure_4.py` |
+| **Fig 5** | **Spatial Interaction & Survival Analysis (The Paradox)** | `python plotting/plot_figure_5.py` |
 
 ## 📜 Citation
 
