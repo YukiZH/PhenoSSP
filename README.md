@@ -116,7 +116,7 @@ Scripts to reproduce the main figures from the manuscript are located in the `pl
 | **Fig 2** | Performance Benchmarks (Confusion Matrices, F1 Scores) | `python plotting/plot_figure_2.py` |
 | **Fig 3** | Robustness & Domain Adaptation Analysis | `python plotting/plot_figure_3.py` |
 | **Fig 4** | Feature Space (t-SNE) & Attention Maps | `python plotting/plot_figure_4.py` |
-| **Fig 5** | **Spatial Interaction & Survival Analysis (The Paradox)** | `python plotting/plot_figure_5.py` |
+| **Fig 5** | Spatial Interaction & Survival Analysis | `python plotting/plot_figure_5.py` |
 
 ## 📜 Citation
 
