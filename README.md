@@ -12,7 +12,7 @@
 
 ## 🚀 Key Features
 
-* **Hierarchical Classification**: A "coarse-to-fine" architecture that mimics pathological logic to effectively handle class imbalance, enabling precise identification of rare subsets like **CD4+FOXP3+ Tregs** and CD3+CD4-CD8+ T cells.
+* **Hierarchical Classification**: A "coarse-to-fine" architecture that mimics pathological logic to effectively handle class imbalance, enabling precise identification of subsets like **CD4+FOXP3+ Tregs** and CD3+CD4-CD8+ T cells.
 * **Domain-Adaptive Spatial Features**: Utilizes a Vision Transformer (ViT-S/16) backbone initialized with self-supervised learning (MAE) to capture channel-specific morphological patterns from 7-color multiplex immunofluorescence (mIF) images.
 * **Pixel-Level Interpretability**: Features a saliency map engine (Guided Backpropagation) that validates model decisions based on biologically relevant subcellular structures (e.g., verifying membrane vs. nuclear localization).
 * **Spatial Interaction Scoring**: Introduces a density-normalized **Spatial Interaction Score ($S_{inter}$)** to quantify the **30 μm suppressive niche**, serving as a robust prognostic biomarker independent of TNM stage.
