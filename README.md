@@ -1,28 +1,3 @@
-这份 README 写得已经很不错了，结构清晰，逻辑顺畅。但是为了匹配我们之前修改过的**文稿术语（Terminology）以及提升专业度**，我有以下几点修改建议：
-
-### 🛠️ 主要修改点 (Key Changes)
-
-1. **术语统一**：
-* 将 `FoxP3` 改为全大写 `FOXP3`。
-* 将 `Contact-Dependent` 改为 `Proximity-Dependent`（与你最新的 Title 和 Cover Letter 保持一致，因为 30μm 属于邻近而非物理接触）。
-* 将 `dictated by` 弱化为 `strongly associated with`（避免因果关系太绝对）。
-
-
-2. **逻辑修正**：
-* 在 **Step 4 (Interpretability)** 中，你原来的命令是加载 `coarse_model` 来查看 `CD8`。但根据你的 Method，CD8 是在 **Expert Model (Fine-grained)** 里区分的，Coarse Model 只分 Immune/Epithelial。所以我把示例命令改成了加载 `expert_model`。
-
-
-3. **增加专业感**：
-* 添加了 Badges（徽章），让仓库看起来更像一个成熟的开源项目。
-* 在 Note to Reviewers 里强调了 "Minimal Demo Data"，避免误会。
-
-
-
----
-
-### ✅ 修改后的 README.md (直接复制即可)
-
-```markdown
 # PhenoSSP: Uncovering a Proximity-Dependent Suppressive Niche in RCC
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
