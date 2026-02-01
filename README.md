@@ -126,4 +126,4 @@ If you find this code or analysis useful, please cite our manuscript:
 
 ## 📧 Contact
 
-For technical questions or issues, please open a [GitHub issue](https://github.com/YourUsername/PhenoSSP/issues) or contact the authors.
+For technical questions or issues, please open a [GitHub issue](https://github.com/YukiZH/PhenoSSP/issues) or contact the authors.
