@@ -1,95 +1,84 @@
-PhenoSSP: Uncovering the Spatial Architecture of Immune Evasion in RCC
+# PhenoSSP: Uncovering the Spatial Architecture of Immune Evasion in RCC
 
 PhenoSSP is a hierarchical deep learning framework designed to resolve the "CD8+ T cell Paradox" in Renal Cell Carcinoma (RCC). By combining fine-grained single-cell phenotyping with spatial interaction analysis, PhenoSSP reveals that patient prognosis is dictated not by the abundance of cytotoxic T cells, but by their spatial entrapment within contact-dependent suppressive niches driven by Regulatory T cells (Tregs).
 
-Note to Reviewers: This repository contains the official implementation of the code used in the manuscript. The full dataset is available upon request due to privacy regulations, but a demo dataset is provided to verify the pipeline's functionality.
+> **Note to Reviewers**: This repository contains the official implementation of the code used in the manuscript. The full dataset is available upon request due to privacy regulations, but a demo dataset is provided to verify the pipeline's functionality.
 
-🚀 Key Features
+## 🚀 Key Features
 
-Hierarchical Classification: A coarse-to-fine architecture that effectively handles class imbalance, enabling precise identification of rare subsets like CD4+FoxP3+ Tregs and CD3+CD4-CD8+ T cells.
+*   **Hierarchical Classification**: A coarse-to-fine architecture that effectively handles class imbalance, enabling precise identification of rare subsets like CD4+FoxP3+ Tregs and CD3+CD4-CD8+ T cells.
+*   **Deep Spatial Features**: Utilizes a Vision Transformer (ViT-S/16) backbone with Marker Embeddings to capture channel-specific morphological patterns from 7-channel multiplex immunofluorescence (mIF) images.
+*   **Pixel-Level Interpretability**: Features a saliency map engine that verifies model decisions based on biologically relevant subcellular structures (e.g., cell membrane vs. nuclear localization).
+*   **Spatial Interaction Scoring**: Introduces a density-normalized interaction score to quantify the 30 μm suppressive niche, serving as a robust prognostic biomarker.
 
-Deep Spatial Features: Utilizes a Vision Transformer (ViT-S/16) backbone with Marker Embeddings to capture channel-specific morphological patterns from 7-channel multiplex immunofluorescence (mIF) images.
+## 🛠️ Installation
 
-Pixel-Level Interpretability: Features a saliency map engine that verifies model decisions based on biologically relevant subcellular structures (e.g., cell membrane vs. nuclear localization).
-
-Spatial Interaction Scoring: Introduces a density-normalized interaction score to quantify the 30 μm suppressive niche, serving as a robust prognostic biomarker.
-
-🛠️ Installation
-
-Clone the repository
-
-git clone [https://github.com/YourUsername/PhenoSSP.git](https://github.com/YourUsername/PhenoSSP.git)
+### Clone the repository
+bash
+git clone https://github.com/YourUsername/PhenoSSP.git
 cd PhenoSSP
 
 
-Install dependencies
-
+### Install dependencies
+bash
 pip install -r requirements.txt
 
 
-💻 Pipeline Usage
+## 💻 Pipeline Usage
 
-1. Data Preprocessing
-
+### 1. Data Preprocessing
 Extract 64x64 single-cell patches from raw mIF images (using DeepCell Mesmer segmentation masks).
-
+bash
 python pipeline/01_data_preprocessing.py --input_dir ./demo_data/raw --output_dir ./demo_data/patches
 
 
-2. Model Training
-
+### 2. Model Training
 PhenoSSP uses a two-stage training strategy:
 
-Stage 1: Self-Supervised Pre-training (MAE)
-
+**Stage 1: Self-Supervised Pre-training (MAE)**
+bash
 python pipeline/02_pretrain_mae.py --data_dir ./demo_data/patches
 
 
-Stage 2: Supervised Fine-tuning
-
+**Stage 2: Supervised Fine-tuning**
+bash
 python pipeline/03_finetune_classifier.py --patch_dir ./demo_data/patches --annotation_csv ./demo_data/annotations.csv --pretrained_weights ./results/mae_checkpoints/backbone.pt
 
 
-3. Inference
-
+### 3. Inference
 Run the trained hierarchical classifier on a new cohort.
-
+bash
 python pipeline/04_inference_cohort.py --data_dir ./demo_data/patches --model_dir ./results/models
 
 
-4. Interpretability (Figure 4)
-
+### 4. Interpretability (Figure 4)
 Generate saliency maps to visualize subcellular attention patterns (e.g., verifying CD8 membrane localization).
-
+bash
 python pipeline/05_visual_interpretability.py --patch_dir ./demo_data/patches --model_path ./results/models/coarse_model_final.pth --target_marker CD8
 
 
-5. Spatial Analysis (Figure 5)
-
+### 5. Spatial Analysis (Figure 5)
 Calculate the Spatial Interaction Score and perform survival analysis.
-
+bash
 python pipeline/06_spatial_analysis.py --prediction_csv ./results/inference/cohort_predictions.csv --clinical_csv ./demo_data/clinical.csv --radius 30
 
 
-📊 Reproducing Figures
+## 📊 Reproducing Figures
+Scripts to reproduce the main figures from the manuscript are located in the `plotting/` directory.
 
-Scripts to reproduce the main figures from the manuscript are located in the plotting/ directory.
-(Note: These scripts require the output files generated by the pipeline steps above)
+*(Note: These scripts require the output files generated by the pipeline steps above.)*
 
-Figure 2: Performance Benchmarks (python plotting/plot_figure_2.py)
+| Figure | Description | Command |
+| :--- | :--- | :--- |
+| **Figure 2** | Performance Benchmarks | `python plotting/plot_figure_2.py` |
+| **Figure 3** | Robustness & Generalization | `python plotting/plot_figure_3.py` |
+| **Figure 4** | Feature Space & Attention Maps | `python plotting/plot_figure_4.py` |
+| **Figure 5** | Spatial Survival Analysis | `python plotting/plot_figure_5.py` |
 
-Figure 3: Robustness & Generalization (python plotting/plot_figure_3.py)
-
-Figure 4: Feature Space & Attention Maps (python plotting/plot_figure_4.py)
-
-Figure 5: Spatial Survival Analysis (python plotting/plot_figure_5.py)
-
-📜 Citation
-
+## 📜 Citation
 If you find this code useful, please cite our manuscript:
 
-Zhang Y., et al. "PhenoSSP Uncovers a Proximity-Dependent Suppressive Niche Decoding the CD8+ T Cell Paradox in Renal Cell Carcinoma." (Under Review, 2026).
+> Zhang Y., et al. "PhenoSSP Uncovers a Proximity-Dependent Suppressive Niche Decoding the CD8+ T Cell paradox in Renal Cell Carcinoma." (Under Review, 2026).
 
-📧 Contact
-
-For technical questions or issues, please open a GitHub issue.
+## 📧 Contact
+For technical questions or issues, please open a [GitHub issue](https://github.com/YourUsername/PhenoSSP/issues).
