@@ -21,7 +21,7 @@
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/YourUsername/PhenoSSP.git](https://github.com/YourUsername/PhenoSSP.git)
+git clone [https://github.com/YukiZH/PhenoSSP.git](https://github.com/YukiZH/PhenoSSP.git)
 cd PhenoSSP
 
 ```
