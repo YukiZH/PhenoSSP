@@ -1,0 +1,29 @@
+
+# PhenoSSP Demo Test Report
+========================
+
+## Data Statistics
+- Total cells: 558
+- Cells with Ground Truth: 534
+
+## Prediction Results
+- Matches: 368
+- Accuracy: 68.91%
+
+## Cell Type Distribution (Predicted)
+predicted_label
+Other           271
+Epithelial      260
+N/A               2
+CD3+CD4-CD8+      1
+
+## Cell Type Distribution (Ground Truth)
+ground_truth_label
+Epithelial               384
+Other                    124
+CD3-CD4+CD8-               7
+other (predict-wrong)      6
+PANCK+CD3+                 4
+CD3+CD4+CD8-               4
+CD3+CD4-CD8-               3
+CD3+CD4-CD8+               2
